@@ -1,17 +1,46 @@
 aid: ausperbio
 name: AusperBio
-description: 'AusperBio is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'AusperBio — AusperBio Therapeutics, Inc. in the United States and Ausper
+  Biopharma Co., Ltd. (杭州浩博医药有限公司) in Hangzhou, China — is a clinical-stage
+  biopharmaceutical company founded in 2019 that develops oligonucleotide and targeted
+  delivery technologies, with an initial focus on achieving a functional cure for chronic
+  hepatitis B infection. Its proprietary Med-Oligo antisense oligonucleotide (ASO) platform
+  pairs novel ASO design and optimization with targeted delivery conjugation chemistry,
+  and its Au-HALO hepatocyte-targeting delivery technology extends the same modular
+  approach to siRNA. The lead candidate AHB-137 is an unconjugated ASO that completed
+  enrollment in two Phase II trials and received China CDE clearance to enter Phase III;
+  a second clinical candidate, AHB-171, is a hepatocyte-targeted siRNA. The company has
+  raised more than $200M across Series B, B+ and B2 rounds from investors including
+  Qiming Venture Partners, HanKang Capital, CDH Investments, Sherpa Capital, YuanBio
+  Venture Capital and Genesis Capital. AusperBio sells therapeutics, not software: it
+  publishes no developer program, no public API, no SDK and no machine-readable API
+  contract. Its only machine-readable surface is the private Spring Boot CMS backend that
+  renders ausperbio.com, whose springdoc API description is correctly locked behind
+  authentication.'
+image: https://www.ausperbio.com/favicon.ico
 url: https://raw.githubusercontent.com/api-evangelist/ausperbio/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profile
+x-tier-reason: no-api-surface
 specificationVersion: '0.20'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
 - Company
+- Biotechnology
+- Pharmaceuticals
+- Biopharmaceutical
+- Life Sciences
+- Therapeutics
+- Oligonucleotide
+- Antisense Oligonucleotide
+- siRNA
+- Clinical Trials
+- Hepatitis B
+- Drug Development
+- Health
+- China
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +48,75 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/ausperbio-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.ausperbio.com/
+- type: About
+  url: https://www.ausperbio.com/company.html
+- type: Team
+  url: https://www.ausperbio.com/leadership.html
+- type: Product
+  url: https://www.ausperbio.com/platform.html
+  description: Med-Oligo ASO platform and Au-HALO targeted delivery technology.
+- type: Research
+  url: https://www.ausperbio.com/pipeline.html
+  description: Clinical pipeline — AHB-137 (ASO) and AHB-171 (siRNA) for chronic hepatitis B.
+- type: Blog
+  url: https://www.ausperbio.com/news.html
+- type: News
+  url: https://www.ausperbio.com/news.html
+- type: Support
+  url: https://www.ausperbio.com/contact-us.html
+- type: Contact
+  url: https://www.ausperbio.com/contact-us.html
+- type: Careers
+  url: https://www.ausperbio.com/careers.html
+- type: TermsOfService
+  url: https://www.ausperbio.com/term.html
+- type: PrivacyPolicy
+  url: https://www.ausperbio.com/privacy.html
+- type: LinkedIn
+  url: https://www.linkedin.com/company/ausperbio
+- type: LLMsTxt
+  url: llms/ausperbio-llms.txt
+
+x-enrichment:
+  date: '2026-08-06'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
+
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    AusperBio develops antisense-oligonucleotide and siRNA drugs for chronic hepatitis B,
+    so there is no software product to expose; ausperbio.com is a Vue single-page app that
+    returns an identical 2,601-byte shell (md5 519d85ce…) for every path including invented
+    ones, and the only machine-readable API description on the estate is the springdoc
+    description of the private Spring Boot CMS at cms.ausperbio.com/jzy-admin/, which is
+    correctly 401-gated and is site infrastructure rather than a product surface.
+  evidence:
+  - url: https://www.ausperbio.com/openapi.json
+    status: 200
+    note: Soft 404 — byte-identical to the SPA shell returned for a nonexistent control path.
+  - url: https://www.ausperbio.com/definitely-not-a-real-path-zzz999
+    status: 200
+    note: Control path proving every 200 on this host is the SPA catch-all.
+  - url: https://www.ausperbio.com/llms.txt
+    status: 200
+    note: Soft 404 — SPA shell, not an llms.txt.
+  - url: https://www.ausperbio.com/.well-known/agent-card.json
+    status: 200
+    note: Soft 404 — SPA shell, not an agent card. No A2A card published.
+  - url: https://cms.ausperbio.com/jzy-admin/v3/api-docs
+    status: 200
+    note: 'Returns {"code":401,"msg":""} — springdoc API description exists but is
+      authentication-gated.'
+  - url: https://cms.ausperbio.com/jzy-admin/doc.html
+    status: 401
+  - url: https://api.ausperbio.com/
+    status: 0
+    note: No such host in DNS. Same for developer. and docs. subdomains.
+  checked: '2026-08-06'
