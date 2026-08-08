@@ -1,0 +1,55 @@
+# AusperBio
+
+> AusperBio — AusperBio Therapeutics, Inc. in the United States and Ausper Biopharma
+> Co., Ltd. (杭州浩博医药有限公司) in Hangzhou, China — is a clinical-stage biopharmaceutical
+> company founded in 2019 that develops oligonucleotide and targeted delivery
+> technologies, with an initial focus on a functional cure for chronic hepatitis B.
+> Its Med-Oligo antisense oligonucleotide (ASO) platform pairs novel ASO design with
+> targeted delivery conjugation chemistry; its Au-HALO hepatocyte-targeting technology
+> extends the same modular approach to siRNA. Lead candidate AHB-137 completed
+> enrollment in two Phase II trials and has China CDE clearance for Phase III; AHB-171
+> is a second clinical candidate. AusperBio sells therapeutics, not software: as of
+> 2026-08-06 it publishes no public API, no developer portal, no SDK, and no
+> machine-readable API contract.
+
+## APIs
+
+AusperBio publishes no public API. Contract discovery on 2026-08-06 probed
+www.ausperbio.com and the backend host cms.ausperbio.com for OpenAPI, Swagger,
+springdoc/knife4j API descriptions, GraphQL, MCP, llms.txt and A2A agent cards.
+
+The corporate site is a Vue single-page application that answers HTTP 200 with a
+2,601-byte shell for every path, including paths that do not exist — so a 200 there is
+not evidence of a document. The only machine-readable API description that exists is
+the springdoc description of the private Spring Boot CMS that renders the marketing
+site (`cms.ausperbio.com/jzy-admin/`), and it is correctly locked behind
+authentication. That backend is internal infrastructure, not a product surface.
+
+See the `x-coverage` block in apis.yml for the probed URLs and their HTTP statuses.
+
+## Company
+
+- [Website](https://www.ausperbio.com/): Company site (Chinese-language site: https://www.ausperbio.cn/).
+- [About](https://www.ausperbio.com/company.html): Company overview.
+- [Platform](https://www.ausperbio.com/platform.html): Med-Oligo ASO platform and Au-HALO targeted delivery technology.
+- [Pipeline](https://www.ausperbio.com/pipeline.html): Clinical pipeline — AHB-137 (ASO) and AHB-171 (siRNA) for chronic hepatitis B.
+- [Focus](https://www.ausperbio.com/focus.html): Disease focus.
+- [Leadership](https://www.ausperbio.com/leadership.html): Executive team and scientific advisors.
+- [News](https://www.ausperbio.com/news.html): Company news and press releases.
+- [Careers](https://www.ausperbio.com/careers.html): Open roles.
+- [Contact](https://www.ausperbio.com/contact-us.html): Contact form.
+- [Terms](https://www.ausperbio.com/term.html)
+- [Privacy Policy](https://www.ausperbio.com/privacy.html)
+- [LinkedIn](https://www.linkedin.com/company/ausperbio)
+
+## Artifacts
+
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/ausperbio/refs/heads/main/security/ausperbio-domain-security.yml): Probed TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture for ausperbio.com plus the cms.ausperbio.com backend host.
+
+## Notes
+
+- This is an API Evangelist third-party profile assembled from publicly reachable
+  material. See README.md.
+- generated: 2026-08-06
+- method: generated
+- source: apis.yml + repo artifacts + live probes of ausperbio.com and cms.ausperbio.com
