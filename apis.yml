@@ -17,6 +17,17 @@ description: 'AusperBio — AusperBio Therapeutics, Inc. in the United States an
   contract. Its only machine-readable surface is the private Spring Boot CMS backend that
   renders ausperbio.com, whose springdoc API description is correctly locked behind
   authentication.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.ausperbio.com/favicon.ico
 url: https://raw.githubusercontent.com/api-evangelist/ausperbio/refs/heads/main/apis.yml
 x-type: company
